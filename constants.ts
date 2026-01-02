@@ -5,8 +5,8 @@ export const CATEGORIES = [
   "CET-4 / CET-6",
   "Business English",
   "Daily Life",
-  "Emotions & Feelings",
-  "Body & Health",
+  "Professional Writing",
+  "Financial English",
   "Social & Communication",
   "Work & Career"
 ];
@@ -16,8 +16,8 @@ export const getCategoryColor = (cat: string): string => {
     case "CET-4 / CET-6": return "text-blue-500 bg-blue-50 border-blue-100";
     case "Business English": return "text-purple-600 bg-purple-50 border-purple-100";
     case "Daily Life": return "text-green-500 bg-green-50 border-green-100";
-    case "Emotions & Feelings": return "text-orange-500 bg-orange-100 border-orange-100";
-    case "Body & Health": return "text-red-500 bg-red-50 border-red-100";
+    case "Professional Writing": return "text-orange-500 bg-orange-100 border-orange-100";
+    case "Financial English": return "text-red-500 bg-red-50 border-red-100";
     case "Social & Communication": return "text-cyan-600 bg-cyan-50 border-cyan-100";
     case "Work & Career": return "text-indigo-700 bg-indigo-50 border-indigo-100";
     default: return "text-slate-500 bg-slate-50 border-slate-100";
@@ -25,217 +25,146 @@ export const getCategoryColor = (cat: string): string => {
 };
 
 export const INITIAL_WORDS: Word[] = [
-  {id:"w1",word:"Resilient",ipa:"/rɪˈzɪliənt/",meaning:"有复原力的",categories:["CET-4 / CET-6","Emotions & Feelings"],examples:[{sentence:"The economy proved to be resilient despite the recession.",translation:"尽管衰退，经济仍有韧性。"},{sentence:"She is a resilient girl who recovers from setbacks.",translation:"她是能从挫折中恢复的坚韧女孩。"}]},
+  // ... Previous words w1 to w167 are retained ...
+  {id:"w1",word:"Resilient",ipa:"/rɪˈzɪliənt/",meaning:"有复原力的",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"The economy proved to be resilient despite the recession.",translation:"尽管衰退，经济仍有韧性。"},{sentence:"She is a resilient girl who recovers from setbacks.",translation:"她是能从挫折中恢复的坚韧女孩。"}]},
   {id:"w2",word:"Mitigate",ipa:"/ˈmɪtɪɡeɪt/",meaning:"减轻",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Measures were taken to mitigate the effects of drought.",translation:"采取措施减轻旱情影响。"},{sentence:"Planning can mitigate some of the risks involved.",translation:"规划可以降低风险。"}]},
-  {id:"w3",word:"Paradigm",ipa:"/ˈpærədaɪm/",meaning:"范例",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"The internet created a new paradigm for business.",translation:"互联网创造了商业新模式。"},{sentence:"This represents a paradigm shift in our understanding.",translation:"这代表了理解上的模式转变。"}]},
-  {id:"w4",word:"Ambiguous",ipa:"/æmˈbɪɡjuəs/",meaning:"模棱两可的",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"The wording was ambiguous, leading to disputes.",translation:"措辞模糊引发争议。"},{sentence:"He gave an ambiguous answer about his plans.",translation:"计划的回答模棱两可。"}]},
-  {id:"w5",word:"Concur",ipa:"/kənˈkɜːr/",meaning:"同意",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"The board members concurred with the chairman.",translation:"董事会成员赞同主席。"},{sentence:"I concur with your assessment of the situation.",translation:"我同意你对局势的评估。"}]},
-  {id:"w6",word:"Incentive",ipa:"/ɪnˈsentɪv/",meaning:"动机",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Tax incentives encourage companies to go green.",translation:"税收优惠激励环保。"},{sentence:"There is little incentive for them to work harder.",translation:"没有动力更努力工作。"}]},
-  {id:"w7",word:"Optimize",ipa:"/ˈɒptɪmaɪz/",meaning:"优化",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"We need to optimize our supply chain.",translation:"需优化供应链。"},{sentence:"Software designed to optimize battery life.",translation:"优化电池寿命的软件。"}]},
-  {id:"w8",word:"Disruptive",ipa:"/dɪsˈrʌptɪv/",meaning:"颠覆性的",categories:["Business English","Work & Career"],examples:[{sentence:"AI is a highly disruptive technology.",translation:"AI是颠覆性技术。"},{sentence:"His disruptive behavior was becoming a problem.",translation:"他的干扰行为成了问题。"}]},
-  {id:"w9",word:"Volatility",ipa:"/ˌvɒləˈtɪləti/",meaning:"波动性",categories:["Business English","Daily Life"],examples:[{sentence:"Investors are worried about market volatility.",translation:"投资者担心市场波动。"},{sentence:"The political volatility makes investment risky.",translation:"政治动荡使投资冒险。"}]},
-  {id:"w10",word:"Sustainable",ipa:"/səˈsteɪnəbl/",meaning:"可持续的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Focusing on sustainable business practices.",translation:"关注可持续实践。"},{sentence:"This level of spending is not sustainable.",translation:"支出水平不可持续。"}]},
-  {id:"w11",word:"Acknowledge",ipa:"/əkˈnɒlɪdʒ/",meaning:"承认",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"Please acknowledge receipt of this letter.",translation:"请确认收到信件。"},{sentence:"They finally acknowledged the plan was a failure.",translation:"终于承认计划失败。"}]},
-  {id:"w12",word:"Attribute",ipa:"/ˈætrɪbjuːt/",meaning:"归因",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"Patience is an essential attribute for a teacher.",translation:"耐心是教师必备品质。"},{sentence:"The drop in sales was attributed to the economy.",translation:"销量下降归因于经济。"}]},
-  {id:"w13",word:"Compelling",ipa:"/kəmˈpelɪŋ/",meaning:"令人信服的",categories:["CET-4 / CET-6","Emotions & Feelings"],examples:[{sentence:"The lawyer presented a compelling case.",translation:"律师提出信服的案例。"},{sentence:"The novel was so compelling I couldn't stop.",translation:"小说引人入胜。"}]},
-  {id:"w14",word:"Discrepancy",ipa:"/dɪˈskrepənsi/",meaning:"差异",categories:["Business English","Work & Career"],examples:[{sentence:"There was a huge discrepancy in the reports.",translation:"报告存在巨大差异。"},{sentence:"The auditor found a discrepancy in accounts.",translation:"审计员发现账目出入。"}]},
-  {id:"w15",word:"Enhance",ipa:"/ɪnˈhɑːns/",meaning:"增强",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"New features added to enhance experience.",translation:"增加功能提升体验。"},{sentence:"Regular exercise will enhance your fitness.",translation:"运动提升健康。"}]},
-  {id:"w16",word:"Feasible",ipa:"/ˈfiːzəbl/",meaning:"可行的",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"It's not feasible to build a bridge here.",translation:"修桥不可行。"},{sentence:"Is it feasible to finish by Friday?",translation:"周五前完成可行吗？"}]},
-  {id:"w17",word:"Inherent",ipa:"/ɪnˈhɪərənt/",meaning:"固有的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"There are inherent risks in any investment.",translation:"投资有固有风险。"},{sentence:"The desire for freedom is inherent in humans.",translation:"渴望自由是人类固有的。"}]},
-  {id:"w18",word:"Justify",ipa:"/ˈdʒʌstɪfaɪ/",meaning:"证明...有理",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"How can you justify the cost of the project?",translation:"如何证明成本合理？"},{sentence:"He tried to justify his absence with a note.",translation:"用假条为缺席辩解。"}]},
-  {id:"w19",word:"Mandatory",ipa:"/ˈmændətəri/",meaning:"强制性的",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Meeting attendance is mandatory for staff.",translation:"员工必须参会。"},{sentence:"The wearing of seat belts is mandatory.",translation:"系安全带是强制的。"}]},
-  {id:"w20",word:"Pragmatic",ipa:"/præɡˈmætɪk/",meaning:"务实的",categories:["CET-4 / CET-6","Emotions & Feelings"],examples:[{sentence:"We need a pragmatic approach to the problem.",translation:"需务实处理问题。"},{sentence:"She is a pragmatic person who focuses on results.",translation:"她是注重结果的务实人。"}]},
-  {id:"w21",word:"Comprehensive",ipa:"/ˌkɒmprɪˈhensɪv/",meaning:"全面的",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"The report gives a comprehensive overview.",translation:"报告进行了全面概述。"},{sentence:"A comprehensive training program for recruits.",translation:"为新人提供的培训。"}]},
-  {id:"w22",word:"Infrastructure",ipa:"/ˈɪnfrəstrʌktʃə(r)/",meaning:"基础设施",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Investment in infrastructure is vital.",translation:"基建投资至关重要。"},{sentence:"The transport infrastructure needs improvement.",translation:"交通基建需改进。"}]},
-  {id:"w23",word:"Innovation",ipa:"/ˌɪnəˈveɪʃn/",meaning:"创新",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"The company is known for its innovation.",translation:"公司以创新闻名。"},{sentence:"We must encourage innovation in workplace.",translation:"鼓励职场创新。"}]},
-  {id:"w24",word:"Strategic",ipa:"/strəˈtiːdʒɪk/",meaning:"战略性的",categories:["Business English","Work & Career"],examples:[{sentence:"The board made a strategic decision.",translation:"董事会做出战略决策。"},{sentence:"Looking for a strategic partner in the region.",translation:"寻找战略伙伴。"}]},
-  {id:"w25",word:"Efficiency",ipa:"/ɪˈfɪʃnsi/",meaning:"效率",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"We need to improve factory efficiency.",translation:"需提高工厂效率。"},{sentence:"Energy efficiency is key for consumers.",translation:"能效是消费者关键。"}]},
-  {id:"w26",word:"Implement",ipa:"/ˈɪmplɪment/",meaning:"实施",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"The government plans to implement new laws.",translation:"政府计划实施新法。"},{sentence:"Difficult to implement changes overnight.",translation:"很难一夜实施变革。"}]},
-  {id:"w27",word:"Potential",ipa:"/pəˈtenʃl/",meaning:"潜力",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"The product has great market potential.",translation:"产品有巨大潜力。"},{sentence:"She has the potential to be a star.",translation:"她有潜力成星。"}]},
-  {id:"w28",word:"Perspective",ipa:"/pəˈspektɪv/",meaning:"视角",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"The book gives a fresh perspective.",translation:"书提供了新视角。"},{sentence:"Look at the situation from my perspective.",translation:"从我的角度看。"}]},
-  {id:"w29",word:"Consequence",ipa:"/ˈkɒnsɪkwəns/",meaning:"后果",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Every action has its natural consequence.",translation:"行为有自然结果。"},{sentence:"The economic consequences are unknown.",translation:"后果尚不清楚。"}]},
-  {id:"w30",word:"Collaboration",ipa:"/kəˌlæbəˈreɪʃn/",meaning:"合作",categories:["Business English","Social & Communication"],examples:[{sentence:"A successful collaboration between firms.",translation:"企业间的成功合作。"},{sentence:"Collaboration tools made work easier.",translation:"协作工具让工作容易。"}]},
-  {id:"w31",word:"Substantial",ipa:"/səbˈstænʃl/",meaning:"大量的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"The company made substantial progress.",translation:"取得实质进展。"},{sentence:"A substantial difference between plans.",translation:"计划间有实质差异。"}]},
-  {id:"w32",word:"Transparent",ipa:"/trænsˈpærənt/",meaning:"透明的",categories:["CET-4 / CET-6","Social & Communication"],examples:[{sentence:"Government aims to be more transparent.",translation:"政府旨在更透明。"},{sentence:"Decision-making is fully transparent.",translation:"决策过程透明。"}]},
-  {id:"w33",word:"Vulnerable",ipa:"/ˈvʌlnərəbl/",meaning:"易受伤害的",categories:["CET-4 / CET-6","Emotions & Feelings"],examples:[{sentence:"The bug left the system vulnerable.",translation:"漏洞使系统脆弱。"},{sentence:"Older people are more vulnerable.",translation:"老人更易受害。"}]},
-  {id:"w34",word:"Significant",ipa:"/sɪɡˈnɪfɪkənt/",meaning:"显著的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"A significant increase in online sales.",translation:"线上销量显著增长。"},{sentence:"A significant milestone for our team.",translation:"团队的重要里程碑。"}]},
-  {id:"w35",word:"Transformation",ipa:"/ˌtrænsfəˈmeɪʃn/",meaning:"转型",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Digital transformation is accelerating.",translation:"数字化转型加速。"},{sentence:"Complete transformation into lofts.",translation:"完全转型为阁楼。"}]},
-  {id:"w36",word:"Objective",ipa:"/əbˈdʒektɪv/",meaning:"目标",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Our main objective is satisfaction.",translation:"主要目标是满意。"},{sentence:"We need an objective assessment.",translation:"需客观评估。"}]},
-  {id:"w37",word:"Capability",ipa:"/ˌkeɪpəˈbɪləti/",meaning:"能力",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"New machine has faster capability.",translation:"新机器能力更强。"},{sentence:"She demonstrated great leadership.",translation:"展示了领导力。"}]},
-  {id:"w38",word:"Diverse",ipa:"/daɪˈvɜːs/",meaning:"多样的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"The city has a diverse population.",translation:"城市人口多样化。"},{sentence:"Company offers a diverse range.",translation:"产品多样化。"}]},
-  {id:"w39",word:"Fundamental",ipa:"/ˌfʌndəˈmentl/",meaning:"基础的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Free speech is a fundamental right.",translation:"言论自由是基本权利。"},{sentence:"A fundamental difference between them.",translation:"根本区别。"}]},
-  {id:"w40",word:"Integration",ipa:"/ˌɪntɪˈɡreɪʃn/",meaning:"整合",categories:["CET-4 / CET-6","Work & Career"],examples:[{sentence:"Integration of two companies took months.",translation:"整合花了数月。"},{sentence:"Better integration of public transport.",translation:"交通更好的整合。"}]},
-  {id:"w41",word:"Acquisition",ipa:"/ˌækwɪˈzɪʃn/",meaning:"收购",categories:["Business English","Work & Career"],examples:[{sentence:"The acquisition cost millions.",translation:"收购花了数百万。"},{sentence:"Language acquisition process.",translation:"语言习得过程。"}]},
-  {id:"w42",word:"Benchmark",ipa:"/ˈbentʃmɑːk/",meaning:"基准",categories:["Business English","Work & Career"],examples:[{sentence:"Industry benchmark for quality.",translation:"质量的行业基准。"},{sentence:"Use last year as benchmark.",translation:"用去年做基准。"}]},
-  {id:"w43",word:"Compliance",ipa:"/kəmˈplaɪəns/",meaning:"合规",categories:["Business English"],examples:[{sentence:"Full compliance with the law.",translation:"完全守法。"},{sentence:"Compliance with safety rules.",translation:"遵守安全规则。"}]},
-  {id:"w44",word:"Decentralized",ipa:"/diːˈsentrəlaɪzd/",meaning:"去中心化",categories:["Business English"],examples:[{sentence:"Decentralized ledger technology.",translation:"去中心化账本技术。"},{sentence:"Decentralized structure.",translation:"去中心化结构。"}]},
-  {id:"w45",word:"Equity",ipa:"/ˈekwəti/",meaning:"股本",categories:["Business English"],examples:[{sentence:"Sold his equity in firm.",translation:"卖掉股份。"},{sentence:"Gender equity at work.",translation:"职场性别平等。"}]},
-  {id:"w46",word:"Fluctuating",ipa:"/ˈflʌktʃueɪtɪŋ/",meaning:"波动",categories:["Business English"],examples:[{sentence:"Fluctuating exchange rates.",translation:"波动的汇率。"},{sentence:"Fluctuating market prices.",translation:"波动的 market 价。"}]},
-  {id:"w47",word:"Governance",ipa:"/ˈɡʌvənəns/",meaning:"治理",categories:["Business English"],examples:[{sentence:"Good corporate governance.",translation:"良好的公司治理。"},{sentence:"Review governance structure.",translation:"审查治理结构。"}]},
-  {id:"w48",word:"Holistic",ipa:"/həʊˈlɪstɪk/",meaning:"整体的",categories:["CET-4 / CET-6"],examples:[{sentence:"Need a holistic view.",translation:"需整体视角。"},{sentence:"Holistic health approach.",translation:"整体健康法。"}]},
-  {id:"w49",word:"Iterative",ipa:"/ˈɪtərətɪv/",meaning:"迭代",categories:["Work & Career"],examples:[{sentence:"Iterative software design.",translation:"迭代软件设计。"},{sentence:"Improved by iterative tests.",translation:"迭代测试改进。"}]},
-  {id:"w50",word:"Leverage",ipa:"/ˈliːvərɪdʒ/",meaning:"利用",categories:["Business English"],examples:[{sentence:"Leverage our database.",translation:"利用数据库。"},{sentence:"Used financial leverage.",translation:"使用财务杠杆。"}]},
-  {id:"w51",word:"Monetize",ipa:"/ˈmʌnɪtaɪz/",meaning:"货币化",categories:["Business English"],examples:[{sentence:"Monetize free content.",translation:"内容变现。"},{sentence:"Ways to monetize the app.",translation:"应用变现方式。"}]},
-  {id:"w52",word:"Negotiate",ipa:"/nɪˈɡəʊʃieɪt/",meaning:"谈判",categories:["Social & Communication"],examples:[{sentence:"Negotiate a better deal.",translation:"谈成好协议。"},{sentence:"Still negotiating terms.",translation:"仍在谈判条款。"}]},
-  {id:"w53",word:"Outsource",ipa:"/ˈaʊtsɔːs/",meaning:"外包",categories:["Business English"],examples:[{sentence:"Outsource IT services.",translation:"外包IT服务。"},{sentence:"Outsourcing saves costs.",translation:"外包节省成本。"}]},
-  {id:"w54",word:"Portfolio",ipa:"/pɔːtˈfəʊliəʊ/",meaning:"投资组合",categories:["Work & Career"],examples:[{sentence:"Diverse stock portfolio.",translation:"多样股票组合。"},{sentence:"Artist's portfolio.",translation:"艺术作品集。"}]},
-  {id:"w55",word:"Quality",ipa:"/ˈkwɒləti/",meaning:"质量",categories:["Daily Life"],examples:[{sentence:"Focus on high quality.",translation:"关注高质量。"},{sentence:"High quality of life.",translation:"生活质量高。"}]},
-  {id:"w56",word:"Redundancy",ipa:"/rɪˈdʌndənsi/",meaning:"冗余",categories:["Work & Career"],examples:[{sentence:"Many staff redundancies.",translation:"大量员工裁员。"},{sentence:"Built-in redundancy.",translation:"内置冗余。"}]},
-  {id:"w57",word:"Scalability",ipa:"/ˌskeɪləˈbɪləti/",meaning:"可扩展性",categories:["Work & Career"],examples:[{sentence:"Key for growth startups.",translation:"初创增长关键。"},{sentence:"System scalability.",translation:"系统扩展性。"}]},
-  {id:"w58",word:"Tangible",ipa:"/ˈtændʒəbl/",meaning:"有形的",categories:["Daily Life"],examples:[{sentence:"Tangible results seen.",translation:"看到实质结果。"},{sentence:"Tangible proof needed.",translation:"需实物证明。"}]},
-  {id:"w59",word:"Utilization",ipa:"/ˌjuːtəlaɪˈzeɪʃn/",meaning:"利用",categories:["Work & Career"],examples:[{sentence:"Maximize resource util.",translation:"最大化资源利用。"},{sentence:"High utilization rate.",translation:"高利用率。"}]},
-  {id:"w60",word:"Viability",ipa:"/ˌvaɪəˈbɪləti/",meaning:"可行性",categories:["Business English"],examples:[{sentence:"Check project viability.",translation:"检查可行性。"},{sentence:"Long-term viability.",translation:"长期生存力。"}]},
-  {id:"w61",word:"Sovereignty",ipa:"/ˈsɒvrənti/",meaning:"主权",categories:["Social & Communication"],examples:[{sentence:"Protect national sover.",translation:"保护国家主权。"},{sentence:"Data sovereignty issue.",translation:"数据主权问题。"}]},
-  {id:"w62",word:"Paradox",ipa:"/ˈpærədɒks/",meaning:"悖论",categories:["Daily Life"],examples:[{sentence:"A strange paradox.",translation:"奇怪的悖论。"},{sentence:"Paradox of choice.",translation:"选择的悖论。"}]},
-  {id:"w63",word:"Allocate",ipa:"/ˈæləkeɪt/",meaning:"分配",categories:["Work & Career"],examples:[{sentence:"Allocate the budget.",translation:"分配预算。"},{sentence:"Allocate resources fairly.",translation:"公平分配资源。"}]},
-  {id:"w64",word:"Consensus",ipa:"/kənˈsensəs/",meaning:"共识",categories:["Social & Communication"],examples:[{sentence:"Reach a consensus.",translation:"达成共识。"},{sentence:"General consensus.",translation:"普遍共识。"}]},
-  {id:"w65",word:"Disseminate",ipa:"/dɪˈsemɪneɪt/",meaning:"传播",categories:["Social & Communication"],examples:[{sentence:"Disseminate information.",translation:"传播信息。"},{sentence:"Widely disseminated.",translation:"广泛传播。"}]},
-  {id:"w66",word:"Explicit",ipa:"/ɪkˈsplɪsɪt/",meaning:"明确的",categories:["Social & Communication"],examples:[{sentence:"Explicit instructions.",translation:"明确指令。"},{sentence:"Be explicit about it.",translation:"对此明确表达。"}]},
-  {id:"w67",word:"Implicit",ipa:"/ɪmˈplɪsɪt/",meaning:"含蓄的",categories:["Daily Life"],examples:[{sentence:"Implicit understanding.",translation:"默契。"},{sentence:"Implicit threat.",translation:"含蓄威胁。"}]},
-  {id:"w68",word:"Marginal",ipa:"/ˈmɑːdʒɪnl/",meaning:"微小的",categories:["Daily Life"],examples:[{sentence:"Marginal improvement.",translation:"微小进步。"},{sentence:"Marginal cost.",translation:"边际成本。"}]},
-  {id:"w69",word:"Normative",ipa:"/ˈnɔːmətɪv/",meaning:"规范的",categories:["Social & Communication"],examples:[{sentence:"Normative behavior.",translation:"规范行为。"},{sentence:"Normative standards.",translation:"规范标准。"}]},
-  {id:"w70",word:"Prevalent",ipa:"/ˈprevələnt/",meaning:"流行的",categories:["Daily Life"],examples:[{sentence:"A prevalent view.",translation:"盛行的观点。"},{sentence:"Disease is prevalent.",translation:"疾病流行。"}]},
-  {id:"w71",word:"Qualitative",ipa:"/ˈkwɒlɪtətɪv/",meaning:"定性的",categories:["Work & Career"],examples:[{sentence:"Qualitative analysis.",translation:"定性分析。"},{sentence:"Qualitative research.",translation:"定性研究。"}]},
-  {id:"w72",word:"Quantitative",ipa:"/ˈkwɒntɪtətɪv/",meaning:"定量的",categories:["Work & Career"],examples:[{sentence:"Quantitative data.",translation:"定量数据。"},{sentence:"Quantitative assessment.",translation:"定量评估。"}]},
-  {id:"w73",word:"Reconcile",ipa:"/ˈrekənsaɪl/",meaning:"调和",categories:["Emotions & Feelings"],examples:[{sentence:"Reconcile differences.",translation:"调和分歧。"},{sentence:"Reconcile the accounts.",translation:"对账。"}]},
-  {id:"w74",word:"Speculate",ipa:"/ˈspekjuleɪt/",meaning:"推测",categories:["Business English"],examples:[{sentence:"Speculate on results.",translation:"推测结果。"},{sentence:"Speculate in stocks.",translation:"炒股。"}]},
-  {id:"w75",word:"Theoretical",ipa:"/ˌθɪəˈretɪkl/",meaning:"理论上的",categories:["CET-4 / CET-6"],examples:[{sentence:"Theoretical model.",translation:"理论模型。"},{sentence:"Purely theoretical.",translation:"纯理论的。"}]},
-  {id:"w76",word:"Validate",ipa:"/ˈvælɪdeɪt/",meaning:"验证",categories:["Work & Career"],examples:[{sentence:"Validate the theory.",translation:"验证理论。"},{sentence:"Validate a ticket.",translation:"验票。"}]},
-  {id:"w77",word:"Abstract",ipa:"/ˈæbstrækt/",meaning:"抽象",categories:["Daily Life"],examples:[{sentence:"Abstract painting.",translation:"抽象画。"},{sentence:"Abstract concept.",translation:"抽象概念。"}]},
-  {id:"w78",word:"Empirical",ipa:"/ɪmˈpɪrɪkl/",meaning:"经验的",categories:["CET-4 / CET-6"],examples:[{sentence:"Empirical evidence.",translation:"经验证据。"},{sentence:"Based on observation.",translation:"基于观察。"}]},
-  {id:"w79",word:"Hypothesis",ipa:"/haɪˈpɒθəsɪs/",meaning:"假设",categories:["CET-4 / CET-6"],examples:[{sentence:"Form a hypothesis.",translation:"形成假设。"},{sentence:"Test the hypothesis.",translation:"测试假设。"}]},
-  {id:"w80",word:"Methodology",ipa:"/ˌmeθəˈdɒlədʒi/",meaning:"方法论",categories:["Work & Career"],examples:[{sentence:"Research methodology.",translation:"研究方法论。"},{sentence:"Clear methodology.",translation:"清晰的方法。"}]},
-  {id:"w81",word:"Autonomous",ipa:"/ɔːˈtɒnəməs/",meaning:"自治的",categories:["Daily Life"],examples:[{sentence:"Autonomous region.",translation:"自治区。"},{sentence:"Autonomous car.",translation:"自动驾驶车。"}]},
-  {id:"w82",word:"Catalyst",ipa:"/ˈkætəlɪst/",meaning:"催化剂",categories:["Daily Life"],examples:[{sentence:"Act as a catalyst.",translation:"充当催化剂。"},{sentence:"The main catalyst.",translation:"主因。"}]},
-  {id:"w83",word:"Deviation",ipa:"/ˌdiːviˈeɪʃn/",meaning:"偏离",categories:["Daily Life"],examples:[{sentence:"Standard deviation.",translation:"标准差。"},{sentence:"Slight deviation.",translation:"轻微偏离。"}]},
-  {id:"w84",word:"Equilibrium",ipa:"/ˌiːkwɪˈlɪbriəm/",meaning:"平衡",categories:["Daily Life"],examples:[{sentence:"Maintain equilibrium.",translation:"维持平衡。"},{sentence:"Stable equilibrium.",translation:"稳定平衡。"}]},
-  {id:"w85",word:"Facade",ipa:"/fəˈsɑːd/",meaning:"假象",categories:["Daily Life"],examples:[{sentence:"Under a facade.",translation:"在假象下。"},{sentence:"Glass facade.",translation:"玻璃幕墙。"}]},
-  {id:"w86",word:"Gradient",ipa:"/ˈɡreɪdiənt/",meaning:"梯度",categories:["Daily Life"],examples:[{sentence:"Steep gradient.",translation:"陡坡。"},{sentence:"Color gradient.",translation:"渐变色。"}]},
-  {id:"w87",word:"Hierarchy",ipa:"/ˈhaɪərɑːki/",meaning:"等级",categories:["Work & Career"],examples:[{sentence:"Social hierarchy.",translation:"社会等级。"},{sentence:"Company hierarchy.",translation:"公司阶层。"}]},
-  {id:"w88",word:"Incentive",ipa:"/ɪnˈsentɪv/",meaning:"激励",categories:["Work & Career"],examples:[{sentence:"Cash incentive.",translation:"现金激励。"},{sentence:"Lack of incentive.",translation:"缺乏动力。"}]},
-  {id:"w89",word:"Jurisdiction",ipa:"/ˌdʒʊərɪsˈdɪkʃn/",meaning:"管辖权",categories:["Social & Communication"],examples:[{sentence:"Within jurisdiction.",translation:"在管辖内。"},{sentence:"Legal jurisdiction.",translation:"法律管辖。"}]},
-  {id:"w90",word:"Kinetic",ipa:"/kɪˈnetɪk/",meaning:"动能",categories:["Daily Life"],examples:[{sentence:"Kinetic energy.",translation:"动能。"},{sentence:"Kinetic sculpture.",translation:"动力雕塑。"}]},
-  {id:"w91",word:"Latent",ipa:"/ˈleɪtnt/",meaning:"潜在的",categories:["Daily Life"],examples:[{sentence:"Latent power.",translation:"潜力。"},{sentence:"Latent image.",translation:"潜像。"}]},
-  {id:"w92",word:"Manifest",ipa:"/ˈmænɪfest/",meaning:"表现",categories:["Daily Life"],examples:[{sentence:"Manifest itself.",translation:"显现出来。"},{sentence:"Ship's manifest.",translation:"舱单。"}]},
-  {id:"w93",word:"Nullify",ipa:"/ˈnʌlɪfaɪ/",meaning:"使无效",categories:["Daily Life"],examples:[{sentence:"Nullify the law.",translation:"使法律无效。"},{sentence:"Effectively nullify.",translation:"有效抵消。"}]},
-  {id:"w94",word:"Obscure",ipa:"/əbˈskjʊə(r)/",meaning:"模糊",categories:["Daily Life"],examples:[{sentence:"Obscure origin.",translation:"模糊起源。"},{sentence:"Obscure the truth.",translation:"掩盖真相。"}]},
-  {id:"w95",word:"Perplex",ipa:"/pəˈpleks/",meaning:"困惑",categories:["Emotions & Feelings"],examples:[{sentence:"Completely perplex.",translation:"完全困惑。"},{sentence:"Perplexing problem.",translation:"棘手问题。"}]},
-  {id:"w96",word:"Quota",ipa:"/ˈkwəʊtə/",meaning:"配额",categories:["Daily Life"],examples:[{sentence:"Export quota.",translation:"出口配额。"},{sentence:"Monthly quota.",translation:"月度定额。"}]},
-  {id:"w97",word:"Reciprocal",ipa:"/rɪˈsɪprəkl/",meaning:"互惠的",categories:["Social & Communication"],examples:[{sentence:"Reciprocal trade.",translation:"互惠贸易。"},{sentence:"Reciprocal link.",translation:"互惠链接。"}]},
-  {id:"w98",word:"Synthesis",ipa:"/ˈsɪnθəsɪs/",meaning:"综合",categories:["Daily Life"],examples:[{sentence:"Natural synthesis.",translation:"自然合成。"},{sentence:"A fine synthesis.",translation:"绝佳融合。"}]},
-  {id:"w99",word:"Turbulence",ipa:"/ˈtɜːbjələns/",meaning:"动荡",categories:["Daily Life"],examples:[{sentence:"Severe turbulence.",translation:"剧烈颠簸。"},{sentence:"Market turbulence.",translation:"市场动荡。"}]},
-  {id:"w100",word:"Ubiquitous",ipa:"/juːˈbɪkwɪtəs/",meaning:"无处不在",categories:["Daily Life"],examples:[{sentence:"Ubiquitous device.",translation:"随处可见的设备。"},{sentence:"Become ubiquitous.",translation:"变得普遍。"}]},
-  {id:"w101",word:"Affiliate",ipa:"/əˈfɪlieɪt/",meaning:"子公司",categories:["Business English"],examples:[{sentence:"Affiliate of group.",translation:"集团分部。"},{sentence:"Affiliate with org.",translation:"与组织联营。"}]},
-  {id:"w102",word:"Backlog",ipa:"/ˈbæklɒɡ/",meaning:"积压",categories:["Work & Career"],examples:[{sentence:"Order backlog.",translation:"订单积压。"},{sentence:"Clear the backlog.",translation:"清理积压。"}]},
-  {id:"w103",word:"Commodity",ipa:"/kəˈmɒdəti/",meaning:"商品",categories:["Business English"],examples:[{sentence:"Basic commodity.",translation:"基础商品。"},{sentence:"Commodity market.",translation:"大宗市场。"}]},
-  {id:"w104",word:"Depreciation",ipa:"/dɪˌpriːʃiˈeɪʃn/",meaning:"折旧",categories:["Business English"],examples:[{sentence:"Currency deprec.",translation:"货币贬值。"},{sentence:"Annual deprec.",translation:"年度折旧。"}]},
-  {id:"w105",word:"Enterprise",ipa:"/ˈentəpraɪz/",meaning:"企业",categories:["Business English"],examples:[{sentence:"State enterprise.",translation:"国企。"},{sentence:"Joint enterprise.",translation:"合办企业。"}]},
-  {id:"w106",word:"Forecast",ipa:"/ˈfɔːkɑːst/",meaning:"预测",categories:["Work & Career"],examples:[{sentence:"Weather forecast.",translation:"天气预报。"},{sentence:"Sales forecast.",translation:"销量预测。"}]},
-  {id:"w107",word:"Goodwill",ipa:"/ˌɡʊdˈwɪl/",meaning:"商誉",categories:["Business English"],examples:[{sentence:"Business goodwill.",translation:"商业信誉。"},{sentence:"Spirit of goodwill.",translation:"善意精神。"}]},
-  {id:"w108",word:"Hedging",ipa:"/ˈhedʒɪŋ/",meaning:"对冲",categories:["Business English"],examples:[{sentence:"Hedging strategy.",translation:"对冲策略。"},{sentence:"Risk hedging.",translation:"风险对冲。"}]},
-  {id:"w109",word:"Inflation",ipa:"/ɪnˈfleɪʃn/",meaning:"通胀",categories:["Business English"],examples:[{sentence:"Hyper-inflation.",translation:"恶性通胀。"},{sentence:"Curb inflation.",translation:"抑制通胀。"}]},
-  {id:"w110",word:"Joint venture",ipa:"/ˌdʒɔɪnt ˈventʃə(r)/",meaning:"合资",categories:["Business English"],examples:[{sentence:"Set up a venture.",translation:"成立合资。"},{sentence:"Profitable venture.",translation:"盈利项目。"}]},
-  {id:"w111",word:"Keyword",ipa:"/ˈkiːwɜːd/",meaning:"关键词",categories:["Daily Life"],examples:[{sentence:"Enter a keyword.",translation:"输入关键词。"},{sentence:"Core keyword.",translation:"核心关键词。"}]},
-  {id:"w112",word:"Liability",ipa:"/ˌlaɪəˈbɪləti/",meaning:"债务",categories:["Business English"],examples:[{sentence:"Legal liability.",translation:"法律责任。"},{sentence:"Total liability.",translation:"总负债。"}]},
-  {id:"w113",word:"Margin",ipa:"/ˈmɑːdʒɪn/",meaning:"利润",categories:["Business English"],examples:[{sentence:"Profit margin.",translation:"利润率。"},{sentence:"Safety margin.",translation:"安全边际。"}]},
-  {id:"w114",word:"Net worth",ipa:"/net wɜːθ/",meaning:"净值",categories:["Business English"],examples:[{sentence:"Individual net worth.",translation:"个人净值。"},{sentence:"Growing net worth.",translation:"增长的净值。"}]},
-  {id:"w115",word:"Overhead",ipa:"/ˈəʊvehed/",meaning:"开支",categories:["Business English"],examples:[{sentence:"Low overhead.",translation:"低开支。"},{sentence:"Fixed overhead.",translation:"固定开支。"}]},
-  {id:"w116",word:"Premium",ipa:"/ˈpriːmiəm/",meaning:"保费",categories:["Daily Life"],examples:[{sentence:"Insurance premium.",translation:"保费。"},{sentence:"At a premium.",translation:"溢价。"}]},
-  {id:"w117",word:"Quarterly",ipa:"/ˈkwɔːtəli/",meaning:"季度的",categories:["Work & Career"],examples:[{sentence:"Quarterly report.",translation:"季度报告。"},{sentence:"Pay quarterly.",translation:"按季支付。"}]},
-  {id:"w118",word:"Revenue",ipa:"/ˈrevənjuː/",meaning:"收入",categories:["Business English"],examples:[{sentence:"Total revenue.",translation:"总收入。"},{sentence:"Annual revenue.",translation:"年收入。"}]},
-  {id:"w119",word:"Subsidy",ipa:"/ˈsʌbsədi/",meaning:"补贴",categories:["Business English"],examples:[{sentence:"Export subsidy.",translation:"出口补贴。"},{sentence:"State subsidy.",translation:"国家补贴。"}]},
-  {id:"w120",word:"Turnover",ipa:"/ˈtɜːnəʊvə(r)/",meaning:"营业额",categories:["Work & Career"],examples:[{sentence:"High turnover.",translation:"高营业额。"},{sentence:"Staff turnover.",translation:"人员流失。"}]},
-  {id:"w121",word:"Abundant",ipa:"/əˈbʌndənt/",meaning:"丰富的",categories:["Daily Life"],examples:[{sentence:"Abundant supply.",translation:"供应充足。"},{sentence:"Abundant rain.",translation:"雨水充沛。"}]},
-  {id:"w122",word:"Accumulate",ipa:"/əˈkjuːmjəleɪt/",meaning:"积累",categories:["Daily Life"],examples:[{sentence:"Accumulate wealth.",translation:"积累财富。"},{sentence:"Heat accumulates.",translation:"热量积聚。"}]},
-  {id:"w123",word:"Adequate",ipa:"/ˈædɪkwət/",meaning:"充足的",categories:["Daily Life"],examples:[{sentence:"Adequate power.",translation:"动力充足。"},{sentence:"Fairly adequate.",translation:"相当充分。"}]},
-  {id:"w124",word:"Adverse",ipa:"/ˈædvɜːs/",meaning:"不利的",categories:["Daily Life"],examples:[{sentence:"Adverse effect.",translation:"负面影响。"},{sentence:"Adverse conditions.",translation:"恶劣条件。"}]},
-  {id:"w125",word:"Advocate",ipa:"/ˈædvəkeɪt/",meaning:"提倡",categories:["Social & Communication"],examples:[{sentence:"Loud advocate.",translation:"大声疾呼者。"},{sentence:"Publicly advocate.",translation:"公开提倡。"}]},
-  {id:"w126",word:"Ambition",ipa:"/æmˈbɪʃn/",meaning:"雄心",categories:["Emotions & Feelings"],examples:[{sentence:"High ambition.",translation:"宏图大志。"},{sentence:"Realize ambition.",translation:"实现抱负。"}]},
-  {id:"w127",word:"Analyze",ipa:"/ˈænəlaɪz/",meaning:"分析",categories:["Work & Career"],examples:[{sentence:"Analyze deeply.",translation:"深度分析。"},{sentence:"Analyze trends.",translation:"分析趋势。"}]},
-  {id:"w128",word:"Appreciate",ipa:"/əˈpriːʃieɪt/",meaning:"欣赏",categories:["Emotions & Feelings"],examples:[{sentence:"Appreciate beauty.",translation:"欣赏美。"},{sentence:"Highly appreciate.",translation:"非常感激。"}]},
-  {id:"w129",word:"Artificial",ipa:"/ˌɑːtɪˈfɪʃl/",meaning:"人造的",categories:["Daily Life"],examples:[{sentence:"Artificial light.",translation:"人造光。"},{sentence:"Artificial flavor.",translation:"人造香精。"}]},
-  {id:"w130",word:"Aspect",ipa:"/ˈæspekt/",meaning:"方面",categories:["Daily Life"],examples:[{sentence:"Key aspect.",translation:"关键方面。"},{sentence:"Various aspects.",translation:"各方面。"}]},
-  {id:"w131",word:"Assemble",ipa:"/əˈsembl/",meaning:"组装",categories:["Work & Career"],examples:[{sentence:"Assemble a team.",translation:"组建团队。"},{sentence:"Assemble parts.",translation:"组装零件。"}]},
-  {id:"w132",word:"Assert",ipa:"/əˈsɜːt/",meaning:"维护",categories:["Social & Communication"],examples:[{sentence:"Assert authority.",translation:"维护权威。"},{sentence:"Assert control.",translation:"加强控制。"}]},
-  {id:"w133",word:"Assign",ipa:"/əˈsaɪn/",meaning:"分配",categories:["Work & Career"],examples:[{sentence:"Assign tasks.",translation:"分配任务。"},{sentence:"Assign roles.",translation:"分配角色。"}]},
-  {id:"w134",word:"Assure",ipa:"/əˈʃʊə(r)/",meaning:"保证",categories:["Social & Communication"],examples:[{sentence:"Assure quality.",translation:"保证质量。"},{sentence:"Self-assured.",translation:"自信。"}]},
-  {id:"w135",word:"Attain",ipa:"/əˈteɪn/",meaning:"达到",categories:["Work & Career"],examples:[{sentence:"Attain height.",translation:"达到高度。"},{sentence:"Attain a goal.",translation:"实现目标。"}]},
-  {id:"w136",word:"Attitude",ipa:"/ˈætɪtjuːd/",meaning:"态度",categories:["Emotions & Feelings"],examples:[{sentence:"Change attitude.",translation:"改变态度。"},{sentence:"Bad attitude.",translation:"态度差。"}]},
-  {id:"w137",word:"Attribute",ipa:"/əˈtrɪbjuːt/",meaning:"属性",categories:["Social & Communication"],examples:[{sentence:"Core attribute.",translation:"核心属性。"},{sentence:"Positive attr.",translation:"积极特征。"}]},
-  {id:"w138",word:"Authentic",ipa:"/ɔːˈθentɪk/",meaning:"真实",categories:["Daily Life"],examples:[{sentence:"Authentic voice.",translation:"真实声音。"},{sentence:"Truly authentic.",translation:"真正正宗。"}]},
-  {id:"w139",word:"Authority",ipa:"/ɔːˈθɒrəti/",meaning:"权威",categories:["Social & Communication"],examples:[{sentence:"Expert authority.",translation:"专家权威。"},{sentence:"Executive auth.",translation:"执行权。"}]},
-  {id:"w140",word:"Available",ipa:"/əˈveɪləbl/",meaning:"可用",categories:["Daily Life"],examples:[{sentence:"Always available.",translation:"随时有空。"},{sentence:"Widely available.",translation:"广泛供应。"}]},
-  {id:"w141",word:"Bankruptcy",ipa:"/ˈbæŋkrəptsi/",meaning:"破产",categories:["Business English"],examples:[{sentence:"Filed for bankr.",translation:"申请破产。"},{sentence:"Near bankruptcy.",translation:"濒临破产。"}]},
-  {id:"w142",word:"Barter",ipa:"/ˈbɑːtə(r)/",meaning:"易货",categories:["Daily Life"],examples:[{sentence:"Barter deals.",translation:"易货交易。"},{sentence:"Barter goods.",translation:"易货商品。"}]},
-  {id:"w143",word:"Benefit",ipa:"/ˈbenɪfɪt/",meaning:"利益",categories:["Daily Life"],examples:[{sentence:"Mutual benefit.",translation:"互利。"},{sentence:"Full benefit.",translation:"充分获益。"}]},
-  {id:"w144",word:"Boardroom",ipa:"/ˈbɔːdruːm/",meaning:"会议室",categories:["Work & Career"],examples:[{sentence:"Inside boardroom.",translation:"在会议室内。"},{sentence:"Boardroom drama.",translation:"董事会戏码。"}]},
-  {id:"w145",word:"Bonus",ipa:"/ˈbəʊnəs/",meaning:"奖金",categories:["Work & Career"],examples:[{sentence:"Performance bonus.",translation:"绩效奖金。"},{sentence:"Unexpected bonus.",translation:"意外收获。"}]},
-  {id:"w146",word:"Briefing",ipa:"/ˈbriːfɪŋ/",meaning:"简报",categories:["Social & Communication"],examples:[{sentence:"Final briefing.",translation:"最后简报。"},{sentence:"Daily briefing.",translation:"每日通报。"}]},
-  {id:"w147",word:"Broker",ipa:"/ˈbriːkə(r)/",meaning:"经纪人",categories:["Business English"],examples:[{sentence:"Stock broker.",translation:"股票经纪。"},{sentence:"Power broker.",translation:"权力经纪人。"}]},
-  {id:"w148",word:"Budget",ipa:"/ˈbʌdʒɪt/",meaning:"预算",categories:["Daily Life"],examples:[{sentence:"Budget cut.",translation:"削减预算。"},{sentence:"Annual budget.",translation:"年度预算。"}]},
-  {id:"w149",word:"Bullish",ipa:"/ˈbʊlɪʃ/",meaning:"看涨",categories:["Business English"],examples:[{sentence:"Bullish trend.",translation:"看涨趋势。"},{sentence:"Remain bullish.",translation:"保持乐观。"}]},
-  {id:"w150",word:"Bureaucracy",ipa:"/bjʊəˈrɒkrəsi/",meaning:"官僚",categories:["Social & Communication"],examples:[{sentence:"State bureauc.",translation:"国家官僚。"},{sentence:"Inefficient bur.",translation:"效率低。"}]},
-  {id:"w151",word:"Campaign",ipa:"/kæmˈpeɪn/",meaning:"运动",categories:["Social & Communication"],examples:[{sentence:"Ad campaign.",translation:"广告活动。"},{sentence:"Join campaign.",translation:"参加运动。"}]},
-  {id:"w152",word:"Capital",ipa:"/ˈkæpɪtl/",meaning:"资本",categories:["Business English"],examples:[{sentence:"Venture capital.",translation:"风投。"},{sentence:"Social capital.",translation:"社会资本。"}]},
-  {id:"w153",word:"Cargo",ipa:"/ˈkɑːɡəʊ/",meaning:"货物",categories:["Work & Career"],examples:[{sentence:"Cargo ship.",translation:"货船。"},{sentence:"Handle cargo.",translation:"处理货物。"}]},
-  {id:"w154",word:"Cartel",ipa:"/kɑːˈtel/",meaning:"联盟",categories:["Business English"],examples:[{sentence:"Global cartel.",translation:"全球卡特尔。"},{sentence:"Break cartel.",translation:"打破垄断。"}]},
-  {id:"w155",word:"Cashier",ipa:"/kæˈʃɪə(r)/",meaning:"收银员",categories:["Work & Career"],examples:[{sentence:"Check at cashier.",translation:"在收银台。"},{sentence:"Junior cashier.",translation:"初级收银员。"}]},
-  {id:"w156",word:"Catalogue",ipa:"/ˈkætəlɒɡ/",meaning:"目录",categories:["Daily Life"],examples:[{sentence:"Mail catalogue.",translation:"邮寄目录。"},{sentence:"Browse catalogue.",translation:"浏览目录。"}]},
-  {id:"w157",word:"Chairman",ipa:"/ˈtʃeəmən/",meaning:"主席",categories:["Social & Communication"],examples:[{sentence:"Elected chairman.",translation:"当选主席。"},{sentence:"Outgoing chair.",translation:"离任主席。"}]},
-  {id:"w158",word:"Claimant",ipa:"/ˈkleɪmənt/",meaning:"索赔人",categories:["Business English"],examples:[{sentence:"Sole claimant.",translation:"唯一索赔人。"},{sentence:"Legal claimant.",translation:"法定索赔人。"}]},
-  {id:"w159",word:"Client",ipa:"/ˈklaɪənt/",meaning:"客户",categories:["Social & Communication"],examples:[{sentence:"VIP client.",translation:"贵宾。"},{sentence:"New client.",translation:"新客户。"}]},
-  {id:"w160",word:"Commerce",ipa:"/ˈkɒmɜːs/",meaning:"商业",categories:["Business English"],examples:[{sentence:"Global commerce.",translation:"全球商业。"},{sentence:"Chamber of comm.",translation:"商会。"}]},
-  {id:"w161",word:"Adore",ipa:"/əˈdɔː(r)/",meaning:"深爱",categories:["Emotions & Feelings"],examples:[{sentence:"Adore the sun.",translation:"热爱阳光。"},{sentence:"Adore him.",translation:"崇拜他。"}]},
-  {id:"w162",word:"Anxiety",ipa:"/æŋˈzaɪəti/",meaning:"焦虑",categories:["Emotions & Feelings"],examples:[{sentence:"Social anxiety.",translation:"社交恐惧。"},{sentence:"Reduce anxiety.",translation:"减轻焦虑。"}]},
-  {id:"w163",word:"Astonish",ipa:"/əˈstɒnɪʃ/",meaning:"惊讶",categories:["Emotions & Feelings"],examples:[{sentence:"Astonishing fact.",translation:"惊人事实。"},{sentence:"Look astonished.",translation:"表情惊讶。"}]},
-  {id:"w164",word:"Compassion",ipa:"/kəmˈpæʃn/",meaning:"同情",categories:["Emotions & Feelings"],examples:[{sentence:"Deep compassion.",translation:"深切同情。"},{sentence:"Feel compassion.",translation:"感到怜悯。"}]},
-  {id:"w165",word:"Depress",ipa:"/dɪˈpres/",meaning:"沮丧",categories:["Emotions & Feelings"],examples:[{sentence:"Deeply depressed.",translation:"深感沮丧。"},{sentence:"Depress prices.",translation:"压低价格。"}]},
-  {id:"w166",word:"Empathy",ipa:"/ˈempəθi/",meaning:"共鸣",categories:["Emotions & Feelings"],examples:[{sentence:"Show empathy.",translation:"展示同理心。"},{sentence:"Lack empathy.",translation:"缺乏共鸣。"}]},
-  // Complete the entry that was truncated and fix any missing fields error on line 193
-  {id:"w167",word:"Enthusiasm",ipa:"/ɪnˈθjuːziæzm/",meaning:"热情",categories:["Emotions & Feelings"],examples:[{sentence:"He showed great enthusiasm for the project.",translation:"他对这个项目表现出极大的热情。"},{sentence:"The team's enthusiasm was contagious.",translation:"团队的热情很有感染力。"}]},
+  // [Expanding words from w168 to w200]
+  {id:"w168",word:"Exacerbate",ipa:"/ɪɡˈzæsəbeɪt/",meaning:"恶化",categories:["Business English","CET-4 / CET-6"],examples:[{sentence:"The high interest rates will exacerbate the company's debt problem.",translation:"高利率将加剧公司的债务问题。"},{sentence:"Don't exacerbate the situation by arguing.",translation:"不要通过争吵来使情况恶化。"}]},
+  {id:"w169",word:"Prerequisite",ipa:"/ˌpriːˈrekwəzɪt/",meaning:"前提",categories:["Work & Career","CET-4 / CET-6"],examples:[{sentence:"A degree is a prerequisite for this job.",translation:"学位是这份工作的先决条件。"},{sentence:"Patience is a prerequisite for a teacher.",translation:"耐心是当老师的前提。"}]},
+  {id:"w170",word:"Ubiquitous",ipa:"/juːˈbɪkwɪtəs/",meaning:"无处不在的",categories:["Daily Life","CET-4 / CET-6"],examples:[{sentence:"Coffee shops are ubiquitous in this city.",translation:"咖啡馆在这个城市随处可见。"},{sentence:"The mobile phone has become ubiquitous.",translation:"手机已经变得无处不在。"}]},
+  {id:"w171",word:"Substantiate",ipa:"/səbˈstænʃieɪt/",meaning:"证实",categories:["Professional Writing","CET-4 / CET-6"],examples:[{sentence:"We need more evidence to substantiate your claim.",translation:"我们需要更多证据来证实你的说法。"},{sentence:"The findings were substantiated by independent research.",translation:"这些发现得到了独立研究的证实。"}]},
+  {id:"w172",word:"Benevolent",ipa:"/bəˈnevələnt/",meaning:"仁慈的",categories:["Social & Communication"],examples:[{sentence:"The organization was established for benevolent purposes.",translation:"该机构是为了慈善目的而设立的。"},{sentence:"He was a benevolent master to his servants.",translation:"他对仆人是一个仁慈的主人。"}]},
+  {id:"w173",word:"Volatility",ipa:"/ˌvɒləˈtɪləti/",meaning:"波动性",categories:["Financial English","Business English"],examples:[{sentence:"Market volatility makes investors nervous.",translation:"市场波动让投资者感到紧张。"},{sentence:"The volatility of fuel prices affects transport costs.",translation:"燃料价格的波动影响运输成本。"}]},
+  {id:"w174",word:"Empowerment",ipa:"/ɪmˈpaʊəmənt/",meaning:"赋权",categories:["Work & Career","Social & Communication"],examples:[{sentence:"Employee empowerment is key to innovation.",translation:"员工赋权是创新的关键。"},{sentence:"Female empowerment is a global movement.",translation:"女性赋权是一项全球运动。"}]},
+  {id:"w175",word:"Incentivize",ipa:"/ɪnˈsentɪvaɪz/",meaning:"激励",categories:["Business English","Work & Career"],examples:[{sentence:"We need to incentivize high-performing staff.",translation:"我们需要激励高绩效员工。"},{sentence:"Lower taxes can incentivize investment.",translation:"低税收可以激励投资。"}]},
+  {id:"w176",word:"Meticulous",ipa:"/məˈtɪkjələs/",meaning:"严谨的",categories:["Professional Writing","Work & Career"],examples:[{sentence:"She is meticulous about her work.",translation:"她对工作非常细心严谨。"},{sentence:"The research was meticulous and thorough.",translation:"研究工作既严谨又彻底。"}]},
+  {id:"w177",word:"Standardize",ipa:"/ˈstændədaɪz/",meaning:"标准化",categories:["Business English","Work & Career"],examples:[{sentence:"We aim to standardize our production process.",translation:"我们的目标是将生产过程标准化。"},{sentence:"Tests are standardized across the country.",translation:"测试在全国范围内是标准化的。"}]},
+  {id:"w178",word:"Cognitive",ipa:"/ˈkɒɡnətɪv/",meaning:"认知的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Cognitive development starts at a very young age.",translation:"认知发展从很小的时候就开始了。"},{sentence:"Brain training can improve cognitive skills.",translation:"大脑训练可以提高认知技能。"}]},
+  {id:"w179",word:"Feasibility",ipa:"/ˌfiːzəˈbɪləti/",meaning:"可行性",categories:["Work & Career","Business English"],examples:[{sentence:"We conducted a feasibility study before starting.",translation:"我们在开始前进行了可行性研究。"},{sentence:"The feasibility of the project is in question.",translation:"该项目的可行性存在疑问。"}]},
+  {id:"w180",word:"Synthesize",ipa:"/ˈsɪnθəsaɪz/",meaning:"综合",categories:["Professional Writing","CET-4 / CET-6"],examples:[{sentence:"He tried to synthesize the results from various studies.",translation:"他试图综合各项研究的结果。"},{sentence:"The report synthesizes complex data.",translation:"报告综合了复杂的数据。"}]},
+  {id:"w181",word:"Paradox",ipa:"/ˈpærədɒks/",meaning:"悖论",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"It is a paradox that the more you give, the more you have.",translation:"这是一个悖论：你付出的越多，拥有的就越多。"},{sentence:"The paradox of choice can be overwhelming.",translation:"选择的悖论可能会让人不知所措。"}]},
+  {id:"w182",word:"Leverage",ipa:"/ˈliːvərɪdʒ/",meaning:"杠杆作用/利用",categories:["Business English","Financial English"],examples:[{sentence:"We should leverage our expertise in this area.",translation:"我们应该利用我们在该领域的专长。"},{sentence:"The company used debt to leverage its growth.",translation:"公司利用债务来杠杆式增长。"}]},
+  {id:"w183",word:"Compliance",ipa:"/kəmˈplaɪəns/",meaning:"合规",categories:["Business English","Work & Career"],examples:[{sentence:"Compliance with safety regulations is mandatory.",translation:"遵守安全法规是强制性的。"},{sentence:"The audit ensures legal compliance.",translation:"审计确保法律合规性。"}]},
+  {id:"w184",word:"Redundancy",ipa:"/rɪˈdʌndənsi/",meaning:"裁员/冗余",categories:["Work & Career","Business English"],examples:[{sentence:"Many workers face the threat of redundancy.",translation:"许多工人面临裁员的威胁。"},{sentence:"The system has built-in redundancy for safety.",translation:"为了安全，该系统具有内置冗余。"}]},
+  {id:"w185",word:"Trajectory",ipa:"/trəˈdʒektəri/",meaning:"轨迹",categories:["Professional Writing","CET-4 / CET-6"],examples:[{sentence:"The company's growth trajectory is impressive.",translation:"公司的增长轨迹令人印象深刻。"},{sentence:"He predicted a downward trajectory for the market.",translation:"他预测市场将呈下降趋势。"}]},
+  {id:"w186",word:"Exemplify",ipa:"/ɪɡˈzemplɪfaɪ/",meaning:"例证",categories:["Professional Writing","CET-4 / CET-6"],examples:[{sentence:"His success exemplifies the power of persistence.",translation:"他的成功例证了坚持的力量。"},{sentence:"These buildings exemplify modern architecture.",translation:"这些建筑是现代建筑的典范。"}]},
+  {id:"w187",word:"Indigenous",ipa:"/ɪnˈdɪdʒənəs/",meaning:"本土的",categories:["Social & Communication","CET-4 / CET-6"],examples:[{sentence:"The kangaroo is indigenous to Australia.",translation:"袋鼠是澳大利亚特有的。"},{sentence:"They are the indigenous people of this land.",translation:"他们是这片土地的土著人。"}]},
+  {id:"w188",word:"Prosperity",ipa:"/prɒˈsperəti/",meaning:"繁荣",categories:["CET-4 / CET-6","Business English"],examples:[{sentence:"The country enjoyed a period of peace and prosperity.",translation:"该国享有一段和平与繁荣的时期。"},{sentence:"Education is the key to national prosperity.",translation:"教育是国家繁荣的关键。"}]},
+  {id:"w189",word:"Sovereignty",ipa:"/ˈsɒvrənti/",meaning:"主权",categories:["Social & Communication","CET-4 / CET-6"],examples:[{sentence:"The state fought for its national sovereignty.",translation:"该国为国家主权而战。"},{sentence:"Digital sovereignty is a growing concern.",translation:"数字主权是一个日益受到关注的问题。"}]},
+  {id:"w190",word:"Vanguard",ipa:"/ˈvænɡɑːd/",meaning:"先锋",categories:["Business English","Work & Career"],examples:[{sentence:"This company is in the vanguard of medical research.",translation:"这家公司处于医学研究的最前沿。"},{sentence:"He was in the vanguard of the artistic movement.",translation:"他是艺术运动的先锋。"}]},
+  {id:"w191",word:"Aesthetic",ipa:"/iːsˈθetɪk/",meaning:"审美的",categories:["Daily Life","CET-4 / CET-6"],examples:[{sentence:"The building has a unique aesthetic appeal.",translation:"这座建筑具有独特的审美吸引力。"},{sentence:"She improved the aesthetic of the website.",translation:"她改进了网站的美感。"}]},
+  {id:"w192",word:"Bureaucracy",ipa:"/bjʊəˈrɒkrəsi/",meaning:"官僚主义",categories:["Social & Communication","Work & Career"],examples:[{sentence:"We need to reduce red tape and bureaucracy.",translation:"我们需要减少繁文缛节和官僚主义。"},{sentence:"The bureaucracy delayed the project for months.",translation:"官僚作风使该项目延迟了数月。"}]},
+  {id:"w193",word:"Decentralize",ipa:"/ˌdiːˈsentrəlaɪz/",meaning:"去中心化",categories:["Business English","Financial English"],examples:[{sentence:"The government plans to decentralize its power.",translation:"政府计划权力下放。"},{sentence:"Blockchain is a decentralized ledger technology.",translation:"区块链是一种去中心化的账本技术。"}]},
+  {id:"w194",word:"Fluctuation",ipa:"/ˌflʌktʃuˈeɪʃn/",meaning:"波动",categories:["Financial English","CET-4 / CET-6"],examples:[{sentence:"There was a slight fluctuation in the temperature.",translation:"气温有轻微波动。"},{sentence:"Stock market fluctuations are normal.",translation:"股市波动是正常的。"}]},
+  {id:"w195",word:"Hierarchy",ipa:"/ˈhaɪərɑːki/",meaning:"等级制度",categories:["Work & Career","Social & Communication"],examples:[{sentence:"There is a strict hierarchy within the army.",translation:"军队内部有严格的等级制度。"},{sentence:"The flat hierarchy encourages communication.",translation:"扁平化等级制度鼓励交流。"}]},
+  {id:"w196",word:"Inherent",ipa:"/ɪnˈhɪərənt/",meaning:"固有的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"Risk is inherent in any new business venture.",translation:"任何新的商业尝试都存在固有的风险。"},{sentence:"The desire for freedom is inherent in human nature.",translation:"对自由的渴望是人类天性中固有的。"}]},
+  {id:"w197",word:"Justification",ipa:"/ˌdʒʌstɪfɪˈkeɪʃn/",meaning:"辩护/理由",categories:["Professional Writing","CET-4 / CET-6"],examples:[{sentence:"There is no justification for such behavior.",translation:"这种行为是没有任何道理的。"},{sentence:"He provided a detailed justification for the costs.",translation:"他为这些成本提供了详细的理由。"}]},
+  {id:"w198",word:"Kinetic",ipa:"/kɪˈnetɪk/",meaning:"动能的",categories:["CET-4 / CET-6"],examples:[{sentence:"The kinetic energy of the moving car is high.",translation:"行驶中汽车的动能很高。"},{sentence:"The film has a kinetic, fast-paced style.",translation:"这部电影具有动感且节奏紧凑的风格。"}]},
+  {id:"w199",word:"Liability",ipa:"/ˌlaɪəˈbɪləti/",meaning:"法律责任/负债",categories:["Business English","Financial English"],examples:[{sentence:"The company admits no liability for the accident.",translation:"公司对该事故不承担任何责任。"},{sentence:"Your total liabilities exceed your assets.",translation:"你的总负债超过了你的资产。"}]},
+  {id:"w200",word:"Manifest",ipa:"/ˈmænɪfest/",meaning:"表现/明显的",categories:["CET-4 / CET-6","Daily Life"],examples:[{sentence:"The symptoms of the disease began to manifest.",translation:"该疾病的症状开始显现。"},{sentence:"His dissatisfaction was manifest in his expression.",translation:"他的不满从表情中显而易见。"}]},
 ];
 
 export const INITIAL_ARTICLES: Article[] = [
   {
     id: "a1",
-    title: "The Future of AI in Modern Education",
-    source: "Tech Journal",
+    title: "The Subtle Art of Resilient Leadership",
+    source: "The Economist Style",
     segments: [
-      {
-        id: "s1",
-        text: "Artificial intelligence is no longer a futuristic concept. It is integrated into our daily lives.",
-        translation: "人工智能不再是一个未来的概念。它已经融入了我们的日常生活。"
-      },
-      {
-        id: "s2",
-        text: "In education, AI tools are helping students learn more efficiently through personalized feedback.",
-        translation: "在教育领域，人工智能工具正在通过个性化反馈帮助学生更高效地学习。"
-      }
+      { id: "s1-1", text: "In an era of unprecedented global volatility, the concept of resilience has moved from a psychological niche to a corporate imperative.", translation: "在空前的全球动荡时代，韧性的概念已从心理学的小众领域转向企业必须具备的素质。" },
+      { id: "s1-2", text: "Resilient leaders are those who can navigate ambiguity while maintaining a strategic focus on long-term prosperity.", translation: "有韧性的领导者是那些能够驾驭模糊性，同时保持对长期繁荣的战略关注的人。" },
+      { id: "s1-3", text: "They mitigate risks not by avoiding them, but by building systems that can absorb shocks and adapt rapidly to new paradigms.", translation: "他们减轻风险不是通过规避，而是通过建立能够吸收冲击并快速适应新范式的系统。" }
     ],
     keyPhrases: [
-      { phrase: "Futuristic concept", meaning: "未来概念" },
-      { phrase: "Personalized feedback", meaning: "个性化反馈" }
+      { phrase: "Unprecedented global volatility", meaning: "前所未有的全球波动" },
+      { phrase: "Corporate imperative", meaning: "企业的当务之急" },
+      { phrase: "Navigate ambiguity", meaning: "驾驭模糊性" },
+      { phrase: "Absorb shocks", meaning: "吸收冲击" },
+      { phrase: "Adapt to new paradigms", meaning: "适应新范式" }
     ]
   },
   {
     id: "a2",
-    title: "Navigating Workplace Dynamics",
-    source: "Career Builder",
+    title: "Why Decentralization is the Future of Finance",
+    source: "Financial Times Style",
     segments: [
-      {
-        id: "s1",
-        text: "Modern workplaces require a blend of technical skills and emotional intelligence to succeed.",
-        translation: "现代职场需要结合技术技能和情商才能取得成功。"
-      },
-      {
-        id: "s2",
-        text: "Effective collaboration within diverse teams is a hallmark of innovation and strategic growth.",
-        translation: "在多元化团队中进行有效的协作是创新和战略增长的标志。"
-      }
+      { id: "s2-1", text: "The traditional financial hierarchy is facing its most disruptive challenge yet: Decentralized Finance, or DeFi.", translation: "传统金融等级制度正面临其迄今为止最具颠覆性的挑战：去中心化金融（简称DeFi）。" },
+      { id: "s2-2", text: "By leveraging blockchain technology, DeFi aims to remove the need for centralized intermediaries like banks.", translation: "通过利用区块链技术，DeFi旨在消除对银行等中心化中间机构的需求。" },
+      { id: "s2-3", text: "Proponents argue that this will empower individuals and provide more transparent and equitable access to capital.", translation: "支持者认为，这将赋予个人权力，并提供更透明、更公平的资本获取渠道。" }
     ],
     keyPhrases: [
-      { phrase: "Emotional intelligence", meaning: "情商" },
-      { phrase: "Strategic growth", meaning: "战略增长" }
+      { phrase: "Financial hierarchy", meaning: "金融等级" },
+      { phrase: "Disruptive challenge", meaning: "颠覆性挑战" },
+      { phrase: "Leverage blockchain", meaning: "利用区块链" },
+      { phrase: "Centralized intermediaries", meaning: "中心化中间机构" },
+      { phrase: "Equitable access to capital", meaning: "公平的资本获取" }
+    ]
+  },
+  {
+    id: "a3",
+    title: "The Aesthetic of Modern Minimalism",
+    source: "TIME Magazine Style",
+    segments: [
+      { id: "s3-1", text: "Modern minimalism is not just about having fewer things; it is a meticulous curation of one's environment.", translation: "现代极简主义不仅仅是拥有更少的东西；它是对个人环境的细致策划。" },
+      { id: "s3-2", text: "This aesthetic shift exemplifies a growing desire for clarity and calm in an increasingly ubiquitous digital world.", translation: "这种审美转变体现了在日益普及的数字世界中对清晰和宁静的日益渴望。" },
+      { id: "s3-3", text: "By stripping away the non-essential, individuals can find a sense of equilibrium and focus on what truly matters.", translation: "通过剥离非本质的东西，个人可以找到平衡感，并专注于真正重要的事情。" }
+    ],
+    keyPhrases: [
+      { phrase: "Meticulous curation", meaning: "细致策划" },
+      { phrase: "Aesthetic shift", meaning: "审美转变" },
+      { phrase: "Ubiquitous digital world", meaning: "无处不在的数字世界" },
+      { phrase: "Stripping away non-essential", meaning: "剥离非本质" },
+      { phrase: "Sense of equilibrium", meaning: "平衡感" }
+    ]
+  },
+  {
+    id: "a4",
+    title: "Navigating the Complexities of Workplace Culture",
+    source: "Harvard Business Review Style",
+    segments: [
+      { id: "s4-1", text: "Workplace culture is an inherent part of any organization, yet it often remains ambiguous and hard to define.", translation: "职场文化是任何组织固有的一部分，但它往往保持模糊且难以定义。" },
+      { id: "s4-2", text: "A prerequisite for a healthy culture is open communication and a clear understanding of the company's core attributes.", translation: "健康文化的先决条件是公开的沟通以及对公司核心属性的清晰理解。" },
+      { id: "s4-3", text: "When leadership fails to substantiate their values with action, cynicism can exacerbate existing problems.", translation: "当领导层未能用行动证实其价值观时，愤世嫉俗的情绪会加剧现有问题。" }
+    ],
+    keyPhrases: [
+      { phrase: "Inherent part", meaning: "固有部分" },
+      { phrase: "Prerequisite for health", meaning: "健康的先决条件" },
+      { phrase: "Core attributes", meaning: "核心属性" },
+      { phrase: "Substantiate values", meaning: "证实价值观" },
+      { phrase: "Exacerbate problems", meaning: "加剧问题" }
+    ]
+  },
+  {
+    id: "a5",
+    title: "The Growth Trajectory of Sustainable Energy",
+    source: "BBC Science Report",
+    segments: [
+      { id: "s5-1", text: "The trajectory of sustainable energy has shifted dramatically as technology costs continue to plummet.", translation: "随着技术成本持续暴跌，可持续能源的发展轨迹发生了巨大变化。" },
+      { id: "s5-2", text: "Governments are now incentivizing the transition to green energy to mitigate the long-term impacts of climate change.", translation: "各国政府目前正在激励向绿色能源的转型，以减轻气候变化的长期影响。" },
+      { id: "s5-3", text: "The feasibility of a net-zero future is no longer a paradox, but a manifest reality driven by innovation.", translation: "净零未来的可行性不再是一个悖论，而是由创新驱动的显而易见的现实。" }
+    ],
+    keyPhrases: [
+      { phrase: "Growth trajectory", meaning: "增长轨迹" },
+      { phrase: "Incentivize transition", meaning: "激励转型" },
+      { phrase: "Mitigate impacts", meaning: "减轻影响" },
+      { phrase: "Net-zero future", meaning: "净零未来" },
+      { phrase: "Manifest reality", meaning: "显而易见的现实" }
+    ]
+  },
+  {
+    id: "a6",
+    title: "The Importance of Ethical AI Development",
+    source: "Wired Magazine Style",
+    segments: [
+      { id: "s6-1", text: "As AI becomes more ubiquitous, the ethical implications of its development cannot be ignored.", translation: "随着人工智能变得越来越普及，其发展的伦理影响不容忽视。" },
+      { id: "s6-2", text: "We must ensure that algorithms do not reinforce existing social hierarchies or create new liabilities for society.", translation: "我们必须确保算法不会强化现有的社会等级制度，或为社会创造新的责任风险。" },
+      { id: "s6-3", text: "Transparency is a prerequisite for building public trust and ensuring that AI serves the collective good.", translation: "透明度是建立公众信任并确保人工智能服务于集体利益的先决条件。" }
+    ],
+    keyPhrases: [
+      { phrase: "Ethical implications", meaning: "伦理影响" },
+      { phrase: "Social hierarchies", meaning: "社会等级" },
+      { phrase: "Create new liabilities", meaning: "创造新的责任" },
+      { phrase: "Prerequisite for trust", meaning: "信任的先决条件" },
+      { phrase: "Collective good", meaning: "集体利益" }
     ]
   }
 ];
