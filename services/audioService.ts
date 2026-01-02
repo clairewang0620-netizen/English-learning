@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Modality } from "@google/genai";
 
 let currentAudioSource: AudioBufferSourceNode | null = null;
@@ -51,18 +50,19 @@ export const stopCurrentAudio = () => {
 };
 
 export const playText = async (text: string, voice: string = 'Kore'): Promise<void> => {
+  if (!text || text.trim() === '') return;
+  
   stopCurrentAudio();
 
   if (!audioContext) {
     audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
   }
 
-  // Ensure AudioContext is running (browsers block it until user interaction)
+  // Ensure AudioContext is running
   if (audioContext.state === 'suspended') {
     await audioContext.resume();
   }
 
-  // Initialize AI client using the provided environment variable
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -70,7 +70,8 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
       model: "gemini-2.5-flash-preview-tts",
       contents: [{ parts: [{ text: text }] }],
       config: {
-        responseModalities: [Modality.AUDIO], // Must be an array with a single Modality.AUDIO element
+        responseModalities: [Modality.AUDIO],
+        // thinkingConfig is not supported for TTS models and causes 400 error
         speechConfig: {
           voiceConfig: {
             prebuiltVoiceConfig: { voiceName: voice },
@@ -81,24 +82,25 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
 
     const candidate = response.candidates?.[0];
     if (!candidate) {
-      console.error("TTS Error: No candidates returned.", response);
       throw new Error("No candidates returned from the AI model.");
     }
 
     if (candidate.finishReason && candidate.finishReason !== 'STOP' && !candidate.content) {
-      console.error(`TTS Error: Blocked or failed. Reason: ${candidate.finishReason}`, candidate);
       throw new Error(`Audio generation failed. Reason: ${candidate.finishReason}`);
     }
 
-    // Extract raw audio data from candidates
     const base64Audio = candidate.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
 
     if (!base64Audio) {
-      console.error("TTS Error: No inline audio data found in response parts.", candidate.content?.parts);
+      // Check if model returned text (e.g., feedback or safety refusal) instead of audio
+      const textPart = candidate.content?.parts?.find(p => p.text)?.text;
+      if (textPart) {
+         console.warn("Model returned text instead of audio:", textPart);
+         throw new Error(`Audio generation failed. Model returned text feedback: ${textPart}`);
+      }
       throw new Error("No audio data received from the model.");
     }
 
-    // Decode PCM and play
     const audioBuffer = await decodeAudioData(
       decode(base64Audio),
       audioContext,
@@ -119,7 +121,7 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
         resolve();
       };
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Audio playback error:", error);
     throw error;
   }

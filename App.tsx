@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { AppRoute, Word, Article } from './types';
 import { INITIAL_WORDS, INITIAL_ARTICLES } from './constants';
@@ -113,7 +112,7 @@ const App: React.FC = () => {
         )}
       </header>
 
-      <main className="flex-1 overflow-y-auto p-0 flex flex-col">
+      <main className="flex-1 overflow-hidden p-0 flex flex-col">
         {renderRoute()}
       </main>
     </div>

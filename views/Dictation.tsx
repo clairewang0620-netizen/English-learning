@@ -20,7 +20,6 @@ const Dictation: React.FC<DictationProps> = ({ words, onAddWrongWord, onNavigate
   const inputRef = useRef<HTMLInputElement>(null);
 
   const groupSize = 20;
-  // Calculate total groups dynamically based on word count (320 words = 16 groups)
   const groupsCount = Math.ceil(words.length / groupSize);
   
   const currentGroupWords = selectedGroup !== null 
@@ -76,7 +75,7 @@ const Dictation: React.FC<DictationProps> = ({ words, onAddWrongWord, onNavigate
 
   if (selectedGroup === null) {
     return (
-      <div className="flex-1 flex flex-col p-6 bg-slate-50 min-h-[600px]">
+      <div className="flex-1 flex flex-col p-6 bg-slate-50 overflow-hidden">
         <h3 className="text-3xl font-bold text-slate-900 mb-6">Dictation Groups</h3>
         <div className="flex-1 overflow-y-auto custom-scrollbar pr-1">
           <div className="grid grid-cols-1 gap-4 pb-12">
@@ -106,14 +105,14 @@ const Dictation: React.FC<DictationProps> = ({ words, onAddWrongWord, onNavigate
 
   if (isFinished) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center animate-in zoom-in duration-500 bg-white">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center animate-in zoom-in duration-500 bg-white overflow-y-auto">
         <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center mb-6 transform rotate-12 shadow-lg">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <h3 className="text-3xl font-bold mb-2">Group {selectedGroup} Complete!</h3>
-        <p className="text-slate-500 mb-10">You've mastered these 20 words. Keep going!</p>
+        <p className="text-slate-500 mb-10">You've mastered these words. Keep going!</p>
         
         <div className="space-y-4 w-full max-w-xs">
           <button 
@@ -124,6 +123,12 @@ const Dictation: React.FC<DictationProps> = ({ words, onAddWrongWord, onNavigate
             className="w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl hover:bg-emerald-700 transition-all active:scale-95"
           >
             Practice Group {selectedGroup} Again
+          </button>
+          <button 
+            onClick={onNavigateToWrongWords}
+            className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-xl hover:bg-indigo-700 transition-all"
+          >
+            Review Wrong Words
           </button>
           <button 
             onClick={() => {
@@ -141,7 +146,7 @@ const Dictation: React.FC<DictationProps> = ({ words, onAddWrongWord, onNavigate
   }
 
   return (
-    <div className="flex-1 flex flex-col p-6 bg-slate-50 min-h-[600px]">
+    <div className="flex-1 flex flex-col p-6 bg-slate-50 overflow-hidden">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center gap-3">
           <button 

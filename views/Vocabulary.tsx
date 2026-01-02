@@ -36,11 +36,9 @@ const Vocabulary: React.FC<VocabularyProps> = ({ words, onBack }) => {
     );
   }, [words, selectedCategories]);
 
-  // Grouping logic: maps word index to Group 1, Group 2, etc. (20 words per group)
   const groupedFilteredWords = useMemo(() => {
     const groups: { [key: number]: Word[] } = {};
     filteredWords.forEach(word => {
-      // Find the word's position in the ORIGINAL source array to maintain correct Grouping
       const originalIndex = words.findIndex(w => w.id === word.id);
       const groupNum = Math.floor(originalIndex / 20) + 1;
       if (!groups[groupNum]) groups[groupNum] = [];
@@ -51,7 +49,7 @@ const Vocabulary: React.FC<VocabularyProps> = ({ words, onBack }) => {
 
   if (selectedWord) {
     return (
-      <div className="flex-1 flex flex-col p-6 animate-in fade-in zoom-in duration-300 bg-white min-h-[500px]">
+      <div className="flex-1 flex flex-col p-6 animate-in fade-in zoom-in duration-300 bg-white">
         <button 
           onClick={() => setSelectedWord(null)}
           className="flex items-center text-slate-500 mb-8 hover:text-emerald-600 transition-colors font-medium"
@@ -113,7 +111,7 @@ const Vocabulary: React.FC<VocabularyProps> = ({ words, onBack }) => {
   }
 
   return (
-    <div className="flex-1 flex flex-col bg-white min-h-[600px]">
+    <div className="flex-1 flex flex-col bg-white overflow-hidden">
       <div className="p-6 border-b sticky top-0 bg-white/95 backdrop-blur-sm z-[15]">
         <div className="flex justify-between items-start mb-6">
           <div>
@@ -148,7 +146,7 @@ const Vocabulary: React.FC<VocabularyProps> = ({ words, onBack }) => {
             <button onClick={() => setSelectedCategories([])} className="mt-4 text-emerald-600 text-sm font-bold">Clear All Filters</button>
           </div>
         ) : (
-          Object.entries(groupedFilteredWords).map(([groupNum, groupWords]) => (
+          Object.entries(groupedFilteredWords).sort((a, b) => Number(a[0]) - Number(b[0])).map(([groupNum, groupWords]) => (
             <div key={groupNum} className="mb-2">
               <div className="px-6 py-3 bg-emerald-50/50 border-y border-emerald-100">
                 <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">🟢 Vocabulary Group {groupNum}</span>
@@ -164,6 +162,11 @@ const Vocabulary: React.FC<VocabularyProps> = ({ words, onBack }) => {
                       <div className="flex items-center gap-3 mb-1">
                         <span className="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">{word.word}</span>
                         <span className="text-sm font-mono text-slate-300">{word.ipa}</span>
+                        <div className="flex gap-1">
+                           {word.categories?.map(cat => (
+                             <div key={cat} className={`w-2 h-2 rounded-full ${getCategoryColor(cat).split(' ')[1]}`} title={cat}></div>
+                           ))}
+                        </div>
                       </div>
                       <div className="flex items-center gap-4">
                         <p className={`text-slate-500 text-sm transition-all duration-300 ${hideMeanings ? 'opacity-0 blur-sm' : 'opacity-100'}`}>
