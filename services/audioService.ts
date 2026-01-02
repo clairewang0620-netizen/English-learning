@@ -4,7 +4,6 @@ let currentAudioSource: AudioBufferSourceNode | null = null;
 let audioContext: AudioContext | null = null;
 let currentNativeAudio: HTMLAudioElement | null = null;
 
-// Standard base64 to Uint8Array decoder
 const decode = (base64: string) => {
   const binaryString = atob(base64);
   const len = binaryString.length;
@@ -15,7 +14,6 @@ const decode = (base64: string) => {
   return bytes;
 };
 
-// Decodes raw PCM audio data from Gemini TTS
 const decodeAudioData = async (
   data: Uint8Array,
   ctx: AudioContext,
@@ -36,12 +34,10 @@ const decodeAudioData = async (
 };
 
 export const stopCurrentAudio = () => {
-  // Stop Gemini TTS source
   if (currentAudioSource) {
     try { currentAudioSource.stop(); } catch (e) {}
     currentAudioSource = null;
   }
-  // Stop native audio elements (if any)
   if (currentNativeAudio) {
     currentNativeAudio.pause();
     currentNativeAudio.currentTime = 0;
@@ -58,11 +54,11 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
     audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
   }
 
-  // Ensure AudioContext is running
   if (audioContext.state === 'suspended') {
     await audioContext.resume();
   }
 
+  // Create fresh instance to ensure correct API key selection
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -71,7 +67,6 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
       contents: [{ parts: [{ text: text }] }],
       config: {
         responseModalities: [Modality.AUDIO],
-        // thinkingConfig is not supported for TTS models and causes 400 error
         speechConfig: {
           voiceConfig: {
             prebuiltVoiceConfig: { voiceName: voice },
@@ -80,25 +75,10 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
       },
     });
 
-    const candidate = response.candidates?.[0];
-    if (!candidate) {
-      throw new Error("No candidates returned from the AI model.");
-    }
-
-    if (candidate.finishReason && candidate.finishReason !== 'STOP' && !candidate.content) {
-      throw new Error(`Audio generation failed. Reason: ${candidate.finishReason}`);
-    }
-
-    const base64Audio = candidate.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+    const base64Audio = response.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
 
     if (!base64Audio) {
-      // Check if model returned text (e.g., feedback or safety refusal) instead of audio
-      const textPart = candidate.content?.parts?.find(p => p.text)?.text;
-      if (textPart) {
-         console.warn("Model returned text instead of audio:", textPart);
-         throw new Error(`Audio generation failed. Model returned text feedback: ${textPart}`);
-      }
-      throw new Error("No audio data received from the model.");
+      throw new Error("No audio data received.");
     }
 
     const audioBuffer = await decodeAudioData(
@@ -121,8 +101,8 @@ export const playText = async (text: string, voice: string = 'Kore'): Promise<vo
         resolve();
       };
     });
-  } catch (error: any) {
-    console.error("Audio playback error:", error);
+  } catch (error) {
+    console.error("Audio generation failed:", error);
     throw error;
   }
 };
@@ -139,14 +119,6 @@ export const playRecording = (blob: Blob): Promise<void> => {
       currentNativeAudio = null;
       resolve();
     };
-    audio.onerror = () => {
-      URL.revokeObjectURL(url);
-      currentNativeAudio = null;
-      resolve();
-    };
-    audio.play().catch(err => {
-      console.error("Recording playback error:", err);
-      resolve();
-    });
+    audio.play().catch(() => resolve());
   });
 };

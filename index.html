@@ -15,6 +15,8 @@
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeIn 0.4s ease-out forwards; }
   </style>
 <script type="importmap">
 {
@@ -29,8 +31,6 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
   <div id="root"></div>
-
-  <!-- Application Entry Point -->
   <script type="module" src="index.tsx"></script>
 </body>
 </html>
