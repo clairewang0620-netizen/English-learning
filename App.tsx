@@ -23,7 +23,11 @@ const App: React.FC = () => {
     // Load wrong words from local storage if any
     const saved = localStorage.getItem('fluent_echo_wrong_words');
     if (saved) {
-      setWrongWords(JSON.parse(saved));
+      try {
+        setWrongWords(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to parse wrong words data", e);
+      }
     }
   }, []);
 
@@ -88,9 +92,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen max-w-2xl mx-auto shadow-xl bg-white flex flex-col relative overflow-hidden">
-      {/* Build Status Indicator (Debug-safe Visibility) */}
-      <div className="hidden">FluentEcho App Loaded Successfully</div>
-      
       {/* Background decoration */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-indigo-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
