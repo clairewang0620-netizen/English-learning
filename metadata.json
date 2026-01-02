@@ -1,0 +1,7 @@
+{
+  "name": "FluentEcho: Master English with Authentic Sound",
+  "description": "A comprehensive English learning platform focusing on high-frequency vocabulary, dictation practice, and curated professional reading with authentic AI-powered native pronunciation.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
